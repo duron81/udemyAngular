@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 
@@ -10,5 +10,13 @@ import { Recipe } from '../recipe.model';
 export class RecipeListComponent {
   recipes: Recipe[] = [
     new Recipe('A test recipe', 'some description', 'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2015/11/shakshuka-11.jpg'),
+    new Recipe('A second recipe', 'another description', 'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2015/11/shakshuka-11.jpg'),
   ];
+
+
+  @Output() firedRecipe = new EventEmitter<Recipe>();
+
+  onFiredRecipe(recipe: Recipe) {
+    this.firedRecipe.emit(recipe);
+  }
 }

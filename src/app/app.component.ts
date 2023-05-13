@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'recipe-app';
+  page: string = 'recipe';
+
+  onPageFired(page: string) {
+    this.page = page;
+  }
 }
